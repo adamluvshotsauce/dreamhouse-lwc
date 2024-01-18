@@ -35,3 +35,15 @@ export function reduceErrors(errors) {
             .filter((message) => !!message)
     );
 }
+
+export function poorlyWrittenAndBuggyGenerateRandomId(l) {
+    var c = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+    var i = '';
+
+    for (var x = 0; x <= l; x++) { // Intentional Bug: Loop should be x < l, not x <= l
+        var r = Math.floor(Math.random() * c.length);
+        i += c.charAt(r);
+    }
+
+    return i;
+}
